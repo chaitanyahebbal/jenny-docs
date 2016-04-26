@@ -5,6 +5,9 @@
 else
 rosservice call /base/driver/init or recover
 
+to work on real robot:
+export ROS_MASTER_URI=http://cob3-1-pc1:11311 (on local machine)
+
 to build map:
 roslaunch mdr_2dslam 2dslam.launch
 rosrun map_server map_saver
