@@ -1,0 +1,53 @@
+Set up for Jenny:
+
+1.- add both pcs to the hosts lists on /etc/hosts
+		192.168.1.101   cob3-1-pc1
+		192.168.1.102   cob3-1-pc2
+
+					
+2.- add ssh keys to gitlab
+
+3.- ssh pc1 and do:
+    cd ~
+	git clone https://github.com/moriarty/my-ros-ws
+	mkdir ingido
+    cd indigo
+	source /opt/ros/indigo/setup.bash
+	wstool init src ~/my-ros-ws/cob3-1-pc1.rosinstall 
+	
+3.- ssh pc2 and do:
+	cd ~
+	git clone https://github.com/moriarty/my-ros-ws
+	mkdir ingido
+    cd indigo
+	source /opt/ros/indigo/setup.bash
+	wstool init src ~/my-ros-ws/cob3-1-pc2.rosinstall
+	
+4.- Now clone the repositories in your local pc:
+	cd ~ 
+	cd ~
+	git clone https://github.com/moriarty/my-ros-ws
+	mkdir indigo
+    cd indigo
+	source /opt/ros/indigo/setup.bash
+	wstool init src ~/my-ros-ws/mas-group-dependencies.rosinstall 
+	
+5.- Install the require packages in the local pc
+    cd my-ros-ws
+    chmod +x mas-group-dependencies.debs  
+    ./mas-group-dependencies.debs  
+    
+
+6.- Install dependencies
+    cd indigo/mas_thrid_party_software
+    vim repository.debs
+    remove last line
+    ./repository.debs
+    
+6.- compile in every machine
+	cd indigo
+	catkin build
+	Note: make sure that you sourced the indigo/setup.bash
+	
+7.- source your .bashrc in your /indigo/delvel/setup.sh
+	

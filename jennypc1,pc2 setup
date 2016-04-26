@@ -1,0 +1,6 @@
+mkdir indigo
+cd indigo
+source /opt/ros/indigo-cob-stable/setup.bash
+catkin_init
+clone mas_domestic,mas_common,mas_third_party_software
+catkin_build

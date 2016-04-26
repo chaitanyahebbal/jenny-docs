@@ -1,0 +1,14 @@
+1.source /opt/ros/indigo-cob-stable/setup.bash
+2.launch roscore
+3.roslaunch cob_bringup robot.launch
+4.start command_gui if available: roslaunch cob_bringup dashboard.launch(on local machine)
+else
+rosservice call /base/driver/init or recover
+
+to build map:
+roslaunch mdr_2dslam 2dslam.launch
+rosrun map_server map_saver
+
+stdr simulation:
+roslaunch cob3_navigation_sim robot.launch
+roslaunch mdr_2dnav 2dnav.launch
